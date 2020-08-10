@@ -1,0 +1,4 @@
+FROM centos:8
+COPY trivy.repo /etc/yum.repos.d/trivy.repo
+RUN yum install -y trivy
+ENTRYPOINT ["trivy"]
