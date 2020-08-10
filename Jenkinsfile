@@ -23,6 +23,7 @@ pipeline {
         }
         stage('Push to DockerHub') {
             steps {
+                input 'Would you like to Procced?'
                 sh label: '', script: 'docker push thinknyx/devopsinaction:1.0'
             }
         }
