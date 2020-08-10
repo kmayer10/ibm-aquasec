@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Scan App Image') {
             steps {
-                sh label: '', script: 'trivy client --remote http://54.144.250.10:8080 --format template --template @junit.tpl -o app-image.xml thinknyx/devopsinaction:1.0'
+                sh label: '', script: 'trivy client --exit-code 1 --severity CRITICAL --remote http://54.144.250.10:8080 --format template --template @junit.tpl -o app-image.xml thinknyx/devopsinaction:1.0'
                 junit allowEmptyResults: true, testResults: 'app-image.xml'
             }
         }
